@@ -51,7 +51,7 @@ vim.keymap.set("n", "<C-l>", "<C-l")
 
 if vim.fn.has("nvim-0.12.0") == 1 then
 	vim.pack.add({
-		{ src = "https://github.com/rose-pine/neovimmm" },
+		{ src = "https://github.com/rose-pine/neovim" },
 	})
 end
 
