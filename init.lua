@@ -16,9 +16,11 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.winborder = "rounded"
 vim.opt.list = true
-vim.opt.listchars:append("space:⋅")
-vim.opt.listchars:append("tab:▎ ")
-vim.opt.listchars:append("eol:↴")
+vim.opt.listchars = {
+	space = "⋅",
+	tab = "▎ ",
+	eol = "↴",
+}
 
 vim.g.netrw_banner = 0
 vim.g.netrw_browse_split = 0
@@ -47,19 +49,19 @@ vim.keymap.set({ "n" }, "k", "gk", { desc = "Allows to navigate though wrapped l
 vim.keymap.set("n", "<C-h>", "<C-w>h")
 vim.keymap.set("n", "<C-j>", "<C-w>j")
 vim.keymap.set("n", "<C-k>", "<C-w>k")
-vim.keymap.set("n", "<C-l>", "<C-l")
+vim.keymap.set("n", "<C-l>", "<C-w>l>")
 
 if vim.fn.has("nvim-0.12.0") == 1 then
 	vim.pack.add({
-		{ src = "https://github.com/rose-pine/neovim" },
+		"https://github.com/rose-pine/neovim",
 	})
-end
 
-require("rose-pine").setup({
-	styles = {
-		bold = true,
-		italic = false,
-		transparency = true,
-	},
-})
-vim.cmd.colorscheme("rose-pine")
+	require("rose-pine").setup({
+		styles = {
+			bold = true,
+			italic = false,
+			transparency = true,
+		},
+	})
+	vim.cmd.colorscheme("rose-pine")
+end
